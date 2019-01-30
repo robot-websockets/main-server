@@ -3,17 +3,18 @@ var server = require('http').Server(app);
 var io = require('socket.io')(server);
 var bodyParser = require('body-parser');
 const express = require('express');
+var path = require('path');
 
 const PORT = 5001;
 // const HOST = '0.0.0.0';
 server.listen(PORT);
 // WARNING: app.listen(80) will NOT work here!
-app.use(express.static('static'));
+app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.json()); // for parsing application/json
 
 app.get('/', function(req, res) {
     console.log(':req to /');
-    res.sendFile(__dirname + '/static/index.html');
+    res.sendFile(__dirname + '/public/index.html');
 });
 
 app.post('/api/proximity/', (req, res) => {
