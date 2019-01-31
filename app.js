@@ -83,7 +83,7 @@ connectionAdded = data => {
 
 connectionRemoved = id => {
     // const con = JSON.parse(data);
-    console.log(`removed id: ${id}`);
+    console.log(`removed id: ${id} from ${connectedServices.length}`);
     const disconnectedService = connectedServices.filter(
         item => item.id === id
     );
@@ -97,13 +97,15 @@ connectionRemoved = id => {
         io.sockets.emit('info', payload);
         connectedServices = connectedServices.filter(item => item.id !== id);
         return;
+    } else {
+        console.log(`not found: ${id}`);
     }
-    console.log(`not found: ${id}`);
 };
 
 io.on('connection', server => {
     console.log('new connection');
     // return user id to the caller
+    // that user then send us a ping data packet with their id
     io.to(`${server.id}`).emit('ping', server.id);
 
     server.on('ping', data => {
