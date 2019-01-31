@@ -24,9 +24,9 @@ app.post('/api/proximity/', (req, res) => {
     io.sockets.emit('proximity', value);
 });
 app.post('/api/info/', (req, res) => {
-    const bodyData = req.body.proximity;
+    const bodyData = req.body;
     res.send(bodyData);
-    // console.log(value);
+    console.log(bodyData);
     io.sockets.emit('info', bodyData);
 });
 app.post('/api/barcodes/', (req, res) => {
