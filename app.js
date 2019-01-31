@@ -31,13 +31,15 @@ app.post('/api/info/', (req, res) => {
 });
 app.post('/api/barcodes/', (req, res) => {
     if (req.body.speed !== undefined) {
-        io.sockets.emit('movement-control', req.body);
+        io.sockets.emit('movement-control', JSON.stringify(req.body));
+        // console.log('has speed');
     }
     if (req.body.header !== undefined) {
         io.sockets.emit('info', req.body);
+        // console.log('no header');
     }
 
-    console.log(req.body.speed);
+    // console.log('/api/barcodes/ data:' + JSON.stringify(req.body));
     res.send('ok');
     // console.log(value);
     // io.sockets.emit('info', bodyData);
