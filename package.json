@@ -7,11 +7,20 @@
         "start": "node app.js"
     },
     "keywords": [],
-    "author": "",
-    "license": "ISC",
+    "author": "Phil Stenning",
+    "license": "MIT",
     "dependencies": {
         "cors": "^2.8.5",
         "express": "^4.16.4",
         "socket.io": "^2.2.0"
-    }
+    },
+    "devDependencies": {},
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/robot-websockets/main-server.git"
+    },
+    "bugs": {
+        "url": "https://github.com/robot-websockets/main-server/issues"
+    },
+    "homepage": "https://github.com/robot-websockets/main-server#readme"
 }
