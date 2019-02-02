@@ -6,8 +6,8 @@ const express = require('express');
 var path = require('path');
 
 const PORT = 5001;
-// const HOST = '0.0.0.0';
-server.listen(PORT);
+const HOST = '0.0.0.0';
+server.listen(PORT, HOST);
 // WARNING: app.listen(80) will NOT work here!
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.json()); // for parsing application/json
